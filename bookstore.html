@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Town | A World Full of Books awaits you!</title>
+    <style type="text/css">
+        html {
+            scroll-behavior:smooth;
+        }
+
+        body {
+            position:relative;
+            margin: 0;
+            padding: 0;
+            font-family:Arial, Helvetica, sans-serif;
+            background-image:url(https://images.unsplash.com/photo-1559251606-c623743a6d76?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTN8fHxlbnwwfHx8fHw%3D&w=1000&q=80);
+            background-repeat:no-repeat;
+            background-position:bottom right;
+            background-size:cover;
+        }
+        
+        div{
+            margin:0;
+            padding:0;
+        }
+
+        p{
+            margin:0;
+            padding:0;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color:#000000;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index:2;
+        }
+        
+        li {
+            float: left;
+        }
+
+        li img{
+            border-style:solid;
+            border-width: 3px 0px 3px 3px;
+            border-color:#b9092f #000000 #b9092f #b9092f;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            font-size:16px;
+            font-weight:bold;
+            text-align: center;
+            padding: 14px 70px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: #b9092f;
+        }
+
+        .FlexContainer{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content: space-around;
+
+        }
+
+        .ShopName{
+            
+            width:560px;
+            height:340px;
+            margin-top:50px;
+            text-align: center;
+            padding-top:220px;
+            font-family:Georgia, serif;
+        }
+
+        .LogoImage{
+            margin-top:50px;
+        }
+
+        .Name{
+            font-size:80px;
+        }
+
+        .ShopName a:link, .ShopName a:visited {
+            background-color: #b9092f;
+            color: white;
+            padding: 14px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin-top:9px;
+            border-radius:25px;
+        }
+
+        .Shopname a:hover, .ShopName a:active {
+            background-color: #ce6179;
+            color:black;
+        }   
+
+        .headings{
+            margin: auto;
+            font-size:30px;
+            text-align:center;
+            font-family:Georgia, serif;
+            background-color:#b9092f;
+            color: white;
+            width:300px;
+            padding-top:5px;
+            padding-bottom:5px;
+            border-radius:25px;
+            border:2px black solid;
+        }
+
+        .bestselling{
+            width:250px;
+            height:465px;
+            margin-top:45px;
+            border-radius:5px;
+            border:2px black solid;
+            padding-left:5px;
+            padding-right:5px;
+            background-color:rgb(150, 43, 62);
+        }
+
+        .grad1{
+            background-color:white;
+        }
+
+        .bookname{
+            font-size:17px;
+            font-weight:bold;
+            text-align:center;
+            text-decoration: underline;
+            color:white;
+        }
+
+        .details{
+            text-align: justify;
+            color:white;
+        }
+
+        .bookimage{
+            margin-left:75px;
+            margin-top:5px;
+        }
+
+        .genre{
+            background-color: goldenrod;
+            width:80px;
+            font-family:Georgia, serif;
+            text-align: center;
+            margin:5px;
+            border-radius:15px;
+        }
+
+        .Add{
+            background-color: #b9092f;
+            width:60px;
+            padding:3px;
+            text-align: center;
+            color:white;
+            position:relative;
+            left:180px;
+            top:-15px;
+            border-radius:5px;
+            z-index:1;
+        }
+
+        button.Add:focus{
+            background-color: rgb(13, 102, 13);
+        }
+
+        input[type=text].search{
+            width:400px;
+            height:30px;
+            font-size:16px;
+            padding-left:7px;
+            margin-left:473px;
+            background-image:url('https://www.kindpng.com/picc/m/33-336780_search-icon-grey-png-transparent-png.png');
+            background-size: 25px;
+            background-position: 99.5% 50%;
+            background-repeat: no-repeat;
+        }
+
+        .Vertical-Flex-Container{
+            display:flex;
+            flex-direction: column;
+        }
+
+        .review-points{
+            border-radius:5px;
+            border:2px black solid;
+            padding:5px;
+            padding-left:7px;
+            margin-top:35px;
+            position:relative;
+            left:-20px;
+            background-color:pink;
+            background-image:linear-gradient(to bottom right,pink,#b9092f);
+        }
+
+        .img-person{
+            border-radius:5px;
+            border:2px rgb(85, 79, 79) solid;
+        }
+
+        .person-review{
+            width:500px;
+            padding:5px;
+            padding-left:10px;
+            font-family:"Times New Roman", Times, serif;
+        }
+
+        .person-name{
+            text-align:center;
+            font-weight: bold;
+            background-color:#e9cfd4;
+        }
+
+        .review-box{
+            width:350px;
+            height:350px;
+            padding:10px;
+            border-radius:5px;
+            border:2px black solid;
+            position:relative;
+            left:-60px;
+            top:35px;
+            background-color:pink;
+            background-image:linear-gradient(to bottom right,#c91c41,pink);
+        }
+
+        .review-heading{
+            font-family:Georgia, serif;
+            font-size: 25px;
+            font-weight:bold;
+            text-align:center;
+        }
+
+        label{
+            font-family:"Trebuchet MS", Helvetica, sans-serif;
+            font-size:15px;
+            position:relative;
+            left:47px;
+        }
+
+        input[type=text].reviews{
+            width:250px;
+            height:20px;
+            position:relative;
+            left:47px;
+        }
+
+        textarea{
+            width:250px;
+            height:70px;
+            position:relative;
+            left:47px;
+        }
+        
+        input[type=submit]{
+            position:relative;
+            left:138px;
+            top:5px;
+            background-color: #b9092f;
+            color:white;
+            height:20px;
+            width:70px;
+            border-radius:5px;
+        }
+
+        .icon-heading{
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+            font-size:14px;
+            text-align:center;
+            color:white;
+        }
+
+        .facebook{
+            position:relative;
+            left:628px;
+            top:5px;
+        }
+
+        .instagram{
+            position:relative;
+            left:660px;
+            top:-24px;
+        }
+
+        .twitter{
+            position:relative;
+            left:693px;
+            top:-53px;
+        }
+
+        .footer{
+            position:relative;
+            top:-10px;
+            height:100px;
+            background-color:black;
+        }
+
+        .temp{
+            background-color: black;
+            height:45px;
+            position:relative;
+            top:-10px;
+        }
+
+        a.TC:link{
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+            font-size:12px;
+            position:relative;
+            top:-38px;
+            left:595px;
+            color:rgb(185, 183, 183);
+            text-decoration:none;
+        }
+
+        a.TC:visited{
+            color:rgb(185, 183, 183);
+            text-decoration:none;
+        }
+
+        .copyright{
+            text-align:center;
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+            font-size:12px;
+            position:relative;
+            top:-38px;
+            left:-2px;
+            color:rgb(185, 183, 183);
+        }
+
+        .back-to-home{
+            background-color: black;
+            position:relative;
+            top:-10px;
+        }
+
+        img.home-icon{
+            position:relative;
+            left:1318px;
+            border-radius:100%;
+            background-color:white;
+        }
+
+    </style>
+</head>
+<body class="grad1">
+    <ul>
+        <li><img align="middle" src="https://clipart-library.com/images/pcoA7Ly5i.jpg" height="40"/></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#bestsellers">Best Sellers</a></li>
+        <li><a href="#recommendations">Recommendations</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+    </ul>
+
+    <a name="home"/>
+
+    <div class="FlexContainer">
+        <div class="ShopName">
+            <p class="Name">Book Town</p>
+            <p class="Caption">A World Full of Books awaits you!</p>
+            <a href="#bestsellers">Best Sellers</a>
+        </div>
+        <div class="LogoImage">
+            <img src="https://media.licdn.com/dms/image/D4D03AQFp6zsXsaYLpg/profile-displayphoto-shrink_800_800/0/1673151018739?e=2147483647&v=beta&t=8jfcqKSP1jEoEYFmPgOFxipnlvMjJHvV8tB0_Vz2YfQ" width="560"/>
+        </div>
+    </div>
+
+    <!--Designing the Best Sellers Part-->
+
+    <a name="bestsellers"/>
+
+    <br /><br /><hr /><br /><br />
+
+    <div class="headings">
+        <p>Best Sellers</p>
+    </div>
+    <div class="FlexContainer">
+        <div class="bestselling">
+            <p class="bookname">A Tale of Two Cities</p>
+            <div class="bookimage">
+                <img src="https://cdn.kobo.com/book-images/b6cc787d-79b3-4322-bfae-7bbf6ed59a77/1200/1200/False/a-tale-of-two-cities-431.jpg" width="102"/>
+            </div>
+            <div class="genre">
+                <p>Fiction</p>
+            </div>
+            <p class="details">Set in London and Paris before and during the French Revolution. The novel tells the story of the French Doctor Manette, his 18-year-long imprisonment in the Bastille in Paris, and his release to live in London with his daughter Lucie whom he had never met. </p>
+            <br /><br />
+            <p class="details">Discount: 10%</p>
+            <br />
+            <p class="details">Price: &#8377 250.00</p>
+            <button class="Add"  type="button">ADD+</button>
+        </div>
+
+        <div class="bestselling">
+            <p class="bookname">The Hobbit</p>
+            <div class="bookimage">
+                <img src="https://d3ddkgxe55ca6c.cloudfront.net/assets/t1496156647/a/c9/88/166927-ml-1382794.jpg" width="100"/>
+            </div>
+            <div class="genre">
+                <p>Fiction</p>
+            </div>
+            <p class="details">The Hobbit is set in Middle-earth and follows home-loving Bilbo Baggins, the hobbit of the title, who joins the wizard Gandalf and thirteen dwarves that make up Thorin Oakenshield's Company, on a quest to reclaim the dwarves' home and treasure from the dragon Smaug.</p>
+            <br />
+            <p class="details">Discount: 12%</p>
+            <br />
+            <p class="details">Price: &#8377 952.00</p>
+            <button class="Add"  type="button">ADD+</button>
+        </div>
+
+        <div class="bestselling">
+            <p class="bookname">The Da Vinci Code</p>
+            <div class="bookimage">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/DaVinciCode.jpg/220px-DaVinciCode.jpg" width="102"/>
+            </div>
+            <div class="genre">
+                <p>Mystery</p>
+            </div>
+            <p class="details">The Da Vinci Code follows symbologist Robert Langdon and cryptologist Sophie Neveu after a murder in the Louvre Museum in Paris causes them to become involved in a battle between the Priory of Sion and Opus Dei.</p>
+            <br /><br /><br />
+            <p class="details">Discount: 10%</p>
+            <br />
+            <p class="details">Price: &#8377 339.99</p>
+            <button class="Add"  type="button">ADD+</button>
+        </div>
+
+        <div class="bestselling">
+            <p class="bookname">Harry Potter and the Deathly Hallows</p>
+            <div class="bookimage">
+                <img src="https://m.media-amazon.com/images/I/71sH3vxziLL._AC_UF1000,1000_QL80_.jpg" width="104"/>
+            </div>
+            <div class="genre">
+                <p>Fantasy</p>
+            </div>
+            <p class="details">The novel chronicles the events directly following Harry Potter and the Half-Blood Prince and the final confrontation between the wizards Harry Potter and Lord Voldemort.</p>
+            <br /><br /><br /><br />
+            <p class="details">Discount: 10%</p>
+            <br />
+            <p class="details">Price: &#8377 975.00</p>
+            <button class="Add"  type="button">ADD+</button>
+        </div>
+
+        <div class="bestselling">
+            <p class="bookname">The Lord of Rings</p>
+            <div class="bookimage">
+                <img src="https://m.media-amazon.com/images/I/71jLBXtWJWL._AC_UF1000,1000_QL80_.jpg" width="102"/>
+            </div>
+            <div class="genre">
+                <p>Fantasy</p>
+            </div>
+            <p class="details">The title refers to the story's main antagonist,[b] the Dark Lord Sauron, who, in an earlier age, created the One Ring to rule the other Rings of Power given to Men, Dwarves, and Elves, in his campaign to conquer all of Middle-earth</p>
+            <br /><br />
+            <p class="details">Discount: 10%</p>
+            <br />
+            <p class="details">Price: &#8377 999.00</p>
+            <button class="Add"  type="button">ADD+</button>
+        </div>
+        
+    </div>
+
+    <!--Designing the Recommendations part -->
+
+    <a name="recommendations"/>
+
+    <br /><br /><hr /><br /><br />
+
+    <div class="headings">
+        <p>Recommendations</p>
+    </div>
+
+    <br /><br />
+
+    <form>
+        <input class="search" type="text" placeholder="Search for your Favourite Books here"/>
+    </form>
+
+    <div class="FlexContainer">
+        <div class="bestselling">
+            <p class="bookname">Pride and Prejudice</p>
+            <div class="bookimage">
+                <img src="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781499806250/pride-and-prejudice-9781499806250_hr.jpg" width="105"/>
+            </div>
+            <div class="genre">
+                <p>Romance</p>
+            </div>
+            <p class="details">The novel follows the character development of Elizabeth Bennet, the protagonist of the book, who learns about the repercussions of hasty judgments and comes to appreciate the difference between superficial goodness and actual goodness.</p>
+            <br /><br /><br />
+            <p class="details">Discount: 10%</p>
+            <br />
+            <p class="details">Price: &#8377 185.00</p>
+            <button class="Add"  type="button">ADD+</button>
+        </div>
+
+        <div class="bestselling">
+            <p class="bookname">To Kill a Mocking Bird</p>
+            <div class="bookimage">
+                <img src="https://epqkkxb65h3.exactdn.com/wp-content/uploads/2023/02/m-2908.jpg" width="100"/>
+            </div>
+            <div class="genre">
+                <p>Thriller</p>
+            </div>
+            <p class="details">To Kill a Mockingbird is a novel by the American author Harper Lee.The plot and characters are loosely based on Lee's observations of her family, her neighbors and an event that occurred near her hometown of Monroeville, Alabama, in 1936, when she was ten.</p>
+            <br /><br />
+            <p class="details">Discount: 10%</p>
+            <br />
+            <p class="details">Price: &#8377 264.00</p>
+            <button class="Add"  type="button">ADD+</button>
+        </div>
+
+        <div class="bestselling">
+            <p class="bookname">A Tale of Two Cities</p>
+            <div class="bookimage">
+                <img src="https://cdn.kobo.com/book-images/b6cc787d-79b3-4322-bfae-7bbf6ed59a77/1200/1200/False/a-tale-of-two-cities-431.jpg" width="102"/>
+            </div>
+            <div class="genre">
+                <p>Fiction</p>
+            </div>
+            <p class="details">Set in London and Paris before and during the French Revolution. The novel tells the story of the French Doctor Manette, his 18-year-long imprisonment in the Bastille in Paris, and his release to live in London with his daughter Lucie whom he had never met. </p>
+            <br /><br />
+            <p class="details">Discount: 10%</p>
+            <br />
+            <p class="details">Price: &#8377 250.00</p>
+            <button class="Add"  type="button">ADD+</button>
+        </div>
+
+        <div class="bestselling">
+            <p class="bookname">In Search of Lost Time</p>
+            <div class="bookimage">
+                <img src="https://m.media-amazon.com/images/I/511yf0UGNlL.jpg" width="104"/>
+            </div>
+            <div class="genre">
+                <p>Fiction</p>
+            </div>
+            <p class="details">In Search of Lost Time follows the narrator's recollections of childhood and experiences into adulthood in the late 19th-century and early 20th-century high-society France, while reflecting on the loss of time and lack of meaning in the world.</p>
+            <br />
+            <p class="details">Discount: 12%</p>
+            <br />
+            <p class="details">Price: &#8377 342.00</p>
+            <button class="Add"  type="button">ADD+</button>
+        </div>
+
+        <div class="bestselling">
+            <p class="bookname"> War and Peace</p>
+            <div class="bookimage">
+                <img src="https://m.media-amazon.com/images/I/51s4UBf-y8L._AC_UF1000,1000_QL80_.jpg" width="104"/>
+            </div>
+            <div class="genre">
+                <p>Novel</p>
+            </div>
+            <p class="details">War and Peace is a literary work by Russian author Leo Tolstoy.The novel chronicles the French invasion of Russia and the impact of the Napoleonic era on Tsarist society through the stories of five Russian aristocratic families.</p>
+            <br /><br /><br />
+            <p class="details">Discount: 10%</p>
+            <br />
+            <p class="details">Price: &#8377 369.00</p>
+            <button class="Add"  type="button">ADD+</button>
+        </div>
+
+        <div class="bestselling">
+            <p class="bookname">The Lord of Rings</p>
+            <div class="bookimage">
+                <img src="https://m.media-amazon.com/images/I/71jLBXtWJWL._AC_UF1000,1000_QL80_.jpg" width="102"/>
+            </div>
+            <div class="genre">
+                <p>Fantasy</p>
+            </div>
+            <p class="details">The title refers to the story's main antagonist,[b] the Dark Lord Sauron, who, in an earlier age, created the One Ring to rule the other Rings of Power given to Men, Dwarves, and Elves, in his campaign to conquer all of Middle-earth</p>
+            <br /><br />
+            <p class="details">Discount: 10%</p>
+            <br />
+            <p class="details">Price: &#8377 999.00</p>
+            <button class="Add"  type="button">ADD+</button>
+        </div>
+
+        <div class="bestselling">
+            <p class="bookname">Harry Potter and the Deathly Hallows</p>
+            <div class="bookimage">
+                <img src="https://m.media-amazon.com/images/I/71sH3vxziLL._AC_UF1000,1000_QL80_.jpg" width="105"/>
+            </div>
+            <div class="genre">
+                <p>Fantasy</p>
+            </div>
+            <p class="details">The novel chronicles the events directly following Harry Potter and the Half-Blood Prince and the final confrontation between the wizards Harry Potter and Lord Voldemort.</p>
+            <br /><br /><br /><br />
+            <p class="details">Discount: 10%</p>
+            <br />
+            <p class="details">Price: &#8377 975.00</p>
+            <button class="Add"  type="button">ADD+</button>
+        </div>
+
+        <div class="bestselling">
+            <p class="bookname">The Odyssey</p>
+            <div class="bookimage">
+                <img src="https://cdn.kobo.com/book-images/1c003baf-c48d-45be-9fd3-bc9c2bc6a685/353/569/90/False/the-odyssey-172.jpg" width="112"/>
+            </div>
+            <div class="genre">
+                <p>Epic</p>
+            </div>
+            <p class="details">The Odyssey is one of two major ancient Greek epic poems attributed to Homer. It is one of the oldest extant works of literature still widely read by modern audiences.</p>
+            <br /><br /><br /><br />
+            <p class="details">Discount: 12%</p>
+            <br />
+            <p class="details">Price: &#8377 169.00</p>
+            <button class="Add"  type="button">ADD+</button>
+        </div>
+
+        <div class="bestselling">
+            <p class="bookname">Harry Potter and the Half-Blood Prince</p>
+            <div class="bookimage">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b5/Harry_Potter_and_the_Half-Blood_Prince_cover.png/220px-Harry_Potter_and_the_Half-Blood_Prince_cover.png" width="103"/>
+            </div>
+            <div class="genre">
+                <p>Fantasy</p>
+            </div>
+            <p class="details">Set during Harry Potter's sixth year at Hogwarts, the novel explores the past of the boy wizard's nemesis, Lord Voldemort, and Harry's preparations for the final battle against Voldemort alongside his headmaster and mentor Albus Dumbledore.</p>
+            <br />
+            <p class="details">Discount: 10%</p>
+            <br />
+            <p class="details">Price: &#8377 975.00</p>
+            <button class="Add"  type="button">ADD+</button>
+        </div>
+
+        <div class="bestselling">
+            <p class="bookname">Wuthering Heights</p>
+            <div class="bookimage">
+                <img src="https://d28hgpri8am2if.cloudfront.net/tagged_assets/cvr9781471141638/9781471141638_hr.jpg" width="111"/>
+            </div>
+            <div class="genre">
+                <p>Tragedy</p>
+            </div>
+            <p class="details">It concerns two families of the landed gentry living on the West Yorkshire moors, the Earnshaws and the Lintons, and their turbulent relationships with the Earnshaws' foster son, Heathcliff.</p>
+            <br /><br /><br />
+            <p class="details">Discount: 12%</p>
+            <br />
+            <p class="details">Price: &#8377 225.00</p>
+            <button class="Add"  type="button">ADD+</button>
+        </div>
+        
+    </div>
+
+    <!--Designing the reviews part-->
+
+    <a name="reviews"/>
+
+    <br /><br /><hr /><br /><br />
+
+    <div class="headings">
+        <p>Reviews</p>
+    </div>
+
+    <br />
+
+    <div class="FlexContainer">
+
+        <div class="Vertical-Flex-Container">
+            <div class="review-points FlexContainer">
+                <div class="img-person">
+                    <img src="https://media.istockphoto.com/id/856599656/photo/passport-picture-of-a-smiling-turkish-businesswoman.jpg?s=612x612&w=0&k=20&c=dgETy-9neViQs7SATDTOOa80QOhVFcLIomBFRxWVN_8=" width="70"/>
+                    <p class="person-name">Anna</p>
+                </div>
+                <div class="person-review">
+                    <p>Book Town is that place where you can any kind of book that you like at a lower price. I had been looking for a book since weeks, and it was now where to be found,and that was when my friend suggested Book Town. Not only did I find that book, I found it at a much lower price than I expected. I would truly recommend this store to all the book lovers out there!</p>
+                </div>
+            </div>
+
+            <div class="review-points FlexContainer">
+                <div class="img-person">
+                    <img src="https://images.unsplash.com/photo-1616002411355-49593fd89721?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGFzc3BvcnQlMjBwaG90b3xlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80" width="70"/>
+                    <p class="person-name">Morgan</p>
+                </div>
+                <div class="person-review">
+                    <p>If you are an ardent reader then this place is for you! Who wouldn't want your favourite books to be delivered at your door step in perfect quality.The book that I bought was Pride and Prejudice and it was in perfect shape;perfectly bubble wrapped and sealed, just as one would ask for. Would definitlely order from Book Town again.</p>
+                </div>
+            </div>
+
+            <div class="review-points FlexContainer">
+                <div class="img-person">
+                    <img src="https://i.pinimg.com/474x/05/7f/df/057fdfd101877c6e33c11f3fda62ab9b.jpg" width="70"/>
+                    <p class="person-name">Shyam</p>
+                </div>
+                <div class="person-review">
+                    <p>I had ordered a few books and they came in good shape. The price was also quite cheaper compared to other stores, however I am a bit displeased about the time it took to reach me; I was expecting that the books would arrive in about 1 weeks time, however it took about 2-3 weeks, which was a bit frustrating. Otherwise the purchase was good and the store has a wide variety of books as well.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="review-box">
+            <p class="review-heading">Your Reviews are valuable to us!</p><br />
+            <form>
+                <label for="review-name">Enter your Name:</label><br />
+                <input class="review-name reviews" type="text"/><br /><br />
+                <label for="review-email">Enter your Email ID:</label><br />
+                <input class="review-email reviews" type="text"/><br /><br />
+                <label for="The-review">Enter your Review:</label><br />
+                <textarea class="The-review"></textarea><br /><br />
+                <input class="submit" type="submit"/><br />
+
+            </form>
+        </div>
+    </div>
+
+    <br /><br /><hr />
+
+    <div class="temp"></div>
+    
+    <div class="footer">
+        <p class="icon-heading">Follow us on:</p>
+
+        <div class="facebook">
+            <a href="https://www.facebook.com/" target="_blank">
+                <img class="icon-others" src="https://icons-for-free.com/iconfiles/png/512/facebook+logo+media+network+social+icon-1320192913497992427.png" width="26"/>
+            </a>
+        </div>
+
+        <div class="instagram">
+            <a href="https://www.instagram.com/" target="_blank">
+                <img class="icon-instagram" src="https://icon-library.com/images/instagram-icon-png/instagram-icon-png-6.jpg" width="26"/>
+            </a>
+        </div>
+
+        <div class="twitter">
+            <a href="https://twitter.com/i/flow/login?redirect_after_login=%2Flogin%3Flang%3Den" target="_blank">
+                <img class="icon-others" src="https://cdn4.iconfinder.com/data/icons/social-media-icons-the-circle-set/48/twitter_circle-512.png" width="25"/>
+            </a>
+        </div>
+
+        <a class="TC" href="https://developer.moneris.com/More/Compliance/Sample%20Terms%20of%20Use" target="_blank">Terms of Use |</a>
+        <a class="TC" href="https://www.privacypolicies.com/blog/privacy-policy-template/#:~:text=You%20can%20explain%20the%20different,unauthorized%20access%20to%20their%20accounts." target="_blank"> Privacy Policy</a>
+        <p class="copyright">&#169 2022 Book Town - All Rights Reserved</p>
+
+    </div>
+
+    <div class="back-to-home">
+        <a href="#home">
+            <img class="home-icon" src="https://www.pngkey.com/png/full/17-172207_black-and-white-stock-address-apartment-casa-home.png" width="25"/>
+        </a>
+    </div>
+
+</body>
+</html>
